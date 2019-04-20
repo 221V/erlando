@@ -76,6 +76,6 @@ hoist(ErrorT, Label, PlainFun) ->
                PlainFun(),
                return(passed)
            catch
-               Class:Reason ->
-                   fail({Label, Class, Reason, erlang:get_stacktrace()})
+               Class:Reason:Stk ->
+                   fail({Label, Class, Reason, Stk})
            end]).
